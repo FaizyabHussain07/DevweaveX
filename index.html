@@ -10,6 +10,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="preload" as="style" href="/src/style.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/style.css"></noscript>
 </head>
 
 <body>
@@ -17,24 +19,21 @@
         <!-- Hero Section -->
         <section
             class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-20 relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(167,139,250,0.2),_#0A2540,_#0A2540)] -z-10">
-            </div>
+            <div class="absolute inset-0 hero-bg -z-10"></div>
 
-            <div class="max-w-5xl mx-auto space-y-8 relative z-10">
-                <h1 class="text-6xl md:text-8xl font-black leading-tight">
+            <div class="max-w-6xl mx-auto space-y-10 relative z-10">
+                <h1 class="text-6xl md:text-7xl font-black leading-tight">
                     <span class="block gradient-text">DevweaveX</span>
-                    <span class="block text-[#00D4FF] neon-text mt-2">Weaving Code into</span>
-                    <span class="block text-[#00D4FF] neon-text">Digital Success</span>
+                    <span class="block mt-3">We design, build & ship modern digital products</span>
                 </h1>
 
                 <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                    Custom websites, web/mobile apps, AI tools & digital products by
-                    <span class="text-[#00D4FF] font-semibold">Syed Faizyab Hussain</span> – Karachi, Pakistan
+                    Websites, web/mobile apps and AI tools crafted for business growth.
+                    Trusted by startups and SMEs across Pakistan and beyond.
                 </p>
 
                 <!-- Stats -->
-                <div class="flex flex-wrap justify-center gap-8 mt-12">
+                <div class="flex flex-wrap justify-center gap-8 mt-6">
                     <div class="glass-strong px-8 py-6 rounded-2xl card-hover">
                         <div class="text-4xl font-bold text-[#00D4FF]">50+</div>
                         <div class="text-sm text-gray-400">Projects Delivered</div>
@@ -50,9 +49,9 @@
                 </div>
 
                 <!-- CTAs -->
-                <div class="flex flex-wrap justify-center gap-4 mt-12">
-                    <a href="/pages/portfolio.html" class="btn-secondary">
-                        View Portfolio
+                <div class="flex flex-wrap justify-center gap-4 mt-10">
+                    <a href="/pages/services.html" class="btn-secondary">
+                        View Services
                     </a>
                     <a href="/pages/contact.html" class="btn-primary">
                         Get Free Consultation
@@ -203,8 +202,8 @@
                             </svg>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">MyPage Bio Link</h3>
-                            <p class="text-gray-400 text-sm mb-4">Professional bio link platform</p>
+                            <h3 class="text-xl font-bold mb-2">MyPage Portfolio Builder</h3>
+                            <p class="text-gray-400 text-sm mb-4">Build your personal portfolio in seconds</p>
                             <div class="flex gap-2 flex-wrap mb-4">
                                 <span
                                     class="px-3 py-1 bg-[#00D4FF]/20 text-[#00D4FF] text-xs rounded-full">Next.js</span>
@@ -225,13 +224,13 @@
                             </svg>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">Wibba Web Builder</h3>
-                            <p class="text-gray-400 text-sm mb-4">Drag-and-drop website builder</p>
+                            <h3 class="text-xl font-bold mb-2">Wibba Social Web</h3>
+                            <p class="text-gray-400 text-sm mb-4">Social profiles, feed, likes & comments</p>
                             <div class="flex gap-2 flex-wrap mb-4">
                                 <span
                                     class="px-3 py-1 bg-[#00D4FF]/20 text-[#00D4FF] text-xs rounded-full">JavaScript</span>
                                 <span
-                                    class="px-3 py-1 bg-[#A78BFA]/20 text-[#A78BFA] text-xs rounded-full">No-Code</span>
+                                    class="px-3 py-1 bg-[#A78BFA]/20 text-[#A78BFA] text-xs rounded-full">Social</span>
                             </div>
                             <a href="https://wibba.netlify.app/" target="_blank"
                                 class="text-[#00D4FF] hover:underline text-sm font-semibold">View Live →</a>
@@ -243,6 +242,30 @@
                     <a href="/pages/portfolio.html" class="btn-primary">
                         View Full Portfolio →
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Why <span class="gradient-text">Choose Us</span></h2>
+                    <p class="text-xl text-gray-400">Reliable, transparent, and focused on results</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-strong p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-3">Expert Product Team</h3>
+                        <p class="text-gray-300">Experienced designers and engineers building scalable, maintainable products.</p>
+                    </div>
+                    <div class="glass-strong p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-3">On-Time Delivery</h3>
+                        <p class="text-gray-300">Clear milestones, agile workflow and predictable timelines.</p>
+                    </div>
+                    <div class="glass-strong p-8 rounded-3xl">
+                        <h3 class="text-2xl font-bold mb-3">Transparent Pricing</h3>
+                        <p class="text-gray-300">Straightforward packages with no hidden fees.</p>
+                    </div>
                 </div>
             </div>
         </section>

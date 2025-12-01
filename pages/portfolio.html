@@ -11,6 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="preload" as="style" href="/src/style.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/style.css"></noscript>
 </head>
 
 <body>
@@ -32,7 +34,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="space-y-6">
                             <div>
-                                <h3 class="text-4xl font-bold mb-3">📝 README Builder AI</h3>
+                                <h3 class="text-4xl font-bold mb-3"><i data-lucide="file-text" class="inline-block w-7 h-7 align-[-2px] mr-2"></i> README Builder AI</h3>
                                 <p class="text-gray-400 text-lg mb-4">
                                     An intelligent AI-powered tool that generates professional README files for GitHub
                                     repositories. Built with React and integrated with OpenAI's GPT models.
@@ -50,12 +52,12 @@
                                     class="px-4 py-2 bg-purple/20 text-purple rounded-full text-sm font-semibold">AI/ML</span>
                             </div>
 
-                            <div class="space-y-2 text-gray-300">
-                                <p>✨ AI-powered content generation</p>
-                                <p>✨ Multiple template options</p>
-                                <p>✨ Markdown preview in real-time</p>
-                                <p>✨ Export & download functionality</p>
-                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>AI-powered content generation</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Multiple template options</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Markdown preview in real-time</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Export & download functionality</span></li>
+                            </ul>
 
                             <div class="flex gap-4">
                                 <a href="https://readme-builder-ai.floot.app/" target="_blank"
@@ -70,26 +72,25 @@
                         </div>
 
                         <div class="glass rounded-2xl overflow-hidden">
-                            <iframe src="https://readme-builder-ai.floot.app/"
+                            <iframe src="https://readme-builder-ai.floot.app/" loading="lazy"
                                 class="w-full h-96 lg:h-full min-h-[400px]" title="README Builder AI"></iframe>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: MyPage Bio Link -->
+                <!-- Project 2: MyPage Portfolio Builder -->
                 <div class="glass p-8 rounded-3xl hover:scale-[1.01] transition-all duration-300">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="order-2 lg:order-1 glass rounded-2xl overflow-hidden">
-                            <iframe src="https://mypage.base44.app/" class="w-full h-96 lg:h-full min-h-[400px]"
-                                title="MyPage Bio Link"></iframe>
+                            <iframe src="https://mypage.base44.app/" loading="lazy" class="w-full h-96 lg:h-full min-h-[400px]"
+                                title="MyPage Portfolio Builder"></iframe>
                         </div>
 
                         <div class="order-1 lg:order-2 space-y-6">
                             <div>
-                                <h3 class="text-4xl font-bold mb-3">🔗 MyPage Bio Link</h3>
+                                <h3 class="text-4xl font-bold mb-3"><i data-lucide="user" class="inline-block w-7 h-7 align-[-2px] mr-2"></i> MyPage Portfolio Builder</h3>
                                 <p class="text-gray-400 text-lg mb-4">
-                                    A professional bio link platform similar to Linktree, allowing users to create
-                                    beautiful landing pages with all their important links in one place.
+                                    Build a personal portfolio in seconds with ready‑made templates and instant publishing.
                                 </p>
                             </div>
 
@@ -104,12 +105,12 @@
                                     class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">SaaS</span>
                             </div>
 
-                            <div class="space-y-2 text-gray-300">
-                                <p>✨ Custom branded pages</p>
-                                <p>✨ Analytics dashboard</p>
-                                <p>✨ Social media integration</p>
-                                <p>✨ Mobile-optimized design</p>
-                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Create portfolio in seconds</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Pre‑built templates</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>One‑click publish</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Customizable sections</span></li>
+                            </ul>
 
                             <div class="flex gap-4">
                                 <a href="https://mypage.base44.app/" target="_blank"
@@ -125,35 +126,30 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Wibba Web Builder -->
+                <!-- Project 3: Wibba Social Web -->
                 <div class="glass p-8 rounded-3xl hover:scale-[1.01] transition-all duration-300">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="space-y-6">
                             <div>
-                                <h3 class="text-4xl font-bold mb-3">🎨 Wibba Web Builder</h3>
+                                <h3 class="text-4xl font-bold mb-3"><i data-lucide="users" class="inline-block w-7 h-7 align-[-2px] mr-2"></i> Wibba Social Web</h3>
                                 <p class="text-gray-400 text-lg mb-4">
-                                    A drag-and-drop website builder that empowers users to create stunning websites
-                                    without writing code. Features a visual editor and component library.
+                                    A social web experience with user profiles, feeds, likes, and comments.
                                 </p>
                             </div>
 
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">Vanilla
-                                    JS</span>
-                                <span
-                                    class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">HTML/CSS</span>
-                                <span
-                                    class="px-4 py-2 bg-purple/20 text-purple rounded-full text-sm font-semibold">LocalStorage</span>
-                                <span
-                                    class="px-4 py-2 bg-purple/20 text-purple rounded-full text-sm font-semibold">No-Code</span>
+                                <span class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">Vanilla JS</span>
+                                <span class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">HTML/CSS</span>
+                                <span class="px-4 py-2 bg-purple/20 text-purple rounded-full text-sm font-semibold">SPA</span>
+                                <span class="px-4 py-2 bg-purple/20 text-purple rounded-full text-sm font-semibold">Social</span>
                             </div>
 
-                            <div class="space-y-2 text-gray-300">
-                                <p>✨ Drag-and-drop interface</p>
-                                <p>✨ Pre-built components</p>
-                                <p>✨ Export HTML/CSS</p>
-                                <p>✨ Responsive preview</p>
-                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>User profiles</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>News feed</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Likes & comments</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Responsive UI</span></li>
+                            </ul>
 
                             <div class="flex gap-4">
                                 <a href="https://wibba.netlify.app/" target="_blank"
@@ -168,8 +164,8 @@
                         </div>
 
                         <div class="glass rounded-2xl overflow-hidden">
-                            <iframe src="https://wibba.netlify.app/" class="w-full h-96 lg:h-full min-h-[400px]"
-                                title="Wibba Web Builder"></iframe>
+                            <iframe src="https://wibba.netlify.app/" loading="lazy" class="w-full h-96 lg:h-full min-h-[400px]"
+                                title="Wibba Social Web"></iframe>
                         </div>
                     </div>
                 </div>
@@ -178,13 +174,13 @@
                 <div class="glass p-8 rounded-3xl hover:scale-[1.01] transition-all duration-300">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="order-2 lg:order-1 glass rounded-2xl overflow-hidden">
-                            <iframe src="https://quiz-builder-ai.base44.app/"
+                            <iframe src="https://quiz-builder-ai.base44.app/" loading="lazy"
                                 class="w-full h-96 lg:h-full min-h-[400px]" title="Quiz Builder AI"></iframe>
                         </div>
 
                         <div class="order-1 lg:order-2 space-y-6">
                             <div>
-                                <h3 class="text-4xl font-bold mb-3">❓ Quiz Builder AI</h3>
+                                <h3 class="text-4xl font-bold mb-3"><i data-lucide="circle-help" class="inline-block w-7 h-7 align-[-2px] mr-2"></i> Quiz Builder AI</h3>
                                 <p class="text-gray-400 text-lg mb-4">
                                     An AI-powered quiz generation platform that creates custom quizzes based on any
                                     topic. Perfect for educators and content creators.
@@ -202,12 +198,12 @@
                                     class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">AI</span>
                             </div>
 
-                            <div class="space-y-2 text-gray-300">
-                                <p>✨ AI-generated questions</p>
-                                <p>✨ Multiple question types</p>
-                                <p>✨ Instant grading</p>
-                                <p>✨ Share & embed quizzes</p>
-                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>AI-generated questions</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Multiple question types</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Instant grading</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Share & embed quizzes</span></li>
+                            </ul>
 
                             <div class="flex gap-4">
                                 <a href="https://quiz-builder-ai.base44.app/" target="_blank"
@@ -228,7 +224,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="space-y-6">
                             <div>
-                                <h3 class="text-4xl font-bold mb-3">📖 Faizyab Al-Quran</h3>
+                                <h3 class="text-4xl font-bold mb-3"><i data-lucide="book-open" class="inline-block w-7 h-7 align-[-2px] mr-2"></i> Faizyab Al-Quran</h3>
                                 <p class="text-gray-400 text-lg mb-4">
                                     A beautiful digital Quran reader with translations, audio recitations, and search
                                     functionality. Built with modern web technologies for a seamless reading experience.
@@ -246,12 +242,12 @@
                                     class="px-4 py-2 bg-purple/20 text-purple rounded-full text-sm font-semibold">PWA</span>
                             </div>
 
-                            <div class="space-y-2 text-gray-300">
-                                <p>✨ Multiple translations</p>
-                                <p>✨ Audio recitations</p>
-                                <p>✨ Search & bookmarks</p>
-                                <p>✨ Offline support</p>
-                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Multiple translations</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Audio recitations</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Search & bookmarks</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Offline support</span></li>
+                            </ul>
 
                             <div class="flex gap-4">
                                 <a href="http://faizyab-al-quran.vercel.app/" target="_blank"
@@ -266,7 +262,7 @@
                         </div>
 
                         <div class="glass rounded-2xl overflow-hidden">
-                            <iframe src="http://faizyab-al-quran.vercel.app/"
+                            <iframe src="http://faizyab-al-quran.vercel.app/" loading="lazy"
                                 class="w-full h-96 lg:h-full min-h-[400px]" title="Faizyab Al-Quran"></iframe>
                         </div>
                     </div>
@@ -276,13 +272,13 @@
                 <div class="glass p-8 rounded-3xl hover:scale-[1.01] transition-all duration-300">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="order-2 lg:order-1 glass rounded-2xl overflow-hidden">
-                            <iframe src="https://faizyabhussain07.github.io/College-website/"
+                            <iframe src="https://faizyabhussain07.github.io/College-website/" loading="lazy"
                                 class="w-full h-96 lg:h-full min-h-[400px]" title="Modern College Website"></iframe>
                         </div>
 
                         <div class="order-1 lg:order-2 space-y-6">
                             <div>
-                                <h3 class="text-4xl font-bold mb-3">🎓 Modern College Website</h3>
+                                <h3 class="text-4xl font-bold mb-3"><i data-lucide="graduation-cap" class="inline-block w-7 h-7 align-[-2px] mr-2"></i> Modern College Website</h3>
                                 <p class="text-gray-400 text-lg mb-4">
                                     A fully responsive educational institution website with course listings, faculty
                                     profiles, admission forms, and event calendars. Clean and professional design.
@@ -300,12 +296,12 @@
                                     class="px-4 py-2 bg-neon/20 text-neon rounded-full text-sm font-semibold">Responsive</span>
                             </div>
 
-                            <div class="space-y-2 text-gray-300">
-                                <p>✨ Fully responsive layout</p>
-                                <p>✨ Course catalog</p>
-                                <p>✨ Contact forms</p>
-                                <p>✨ Event calendar</p>
-                            </div>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Fully responsive layout</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Course catalog</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Contact forms</span></li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-neon"></i><span>Event calendar</span></li>
+                            </ul>
 
                             <div class="flex gap-4">
                                 <a href="https://faizyabhussain07.github.io/College-website/" target="_blank"
@@ -341,7 +337,7 @@
         <!-- WhatsApp Float Button -->
         <a href="https://wa.me/923352811970" target="_blank"
             class="fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:scale-110 transition-all duration-300 z-50">
-            💬
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
         </a>
     </div>
     <script type="module" src="/src/main.ts"></script>

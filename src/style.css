@@ -39,10 +39,8 @@
   }
 
   .neon-text {
-    text-shadow:
-      0 0 10px #00D4FF,
-      0 0 20px #00D4FF,
-      0 0 30px #00D4FF;
+    /* Shiny/glow removed for normal look */
+    text-shadow: none;
   }
 
   .gradient-text {
@@ -87,5 +85,13 @@
   .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Hero background image helper */
+  .hero-bg {
+    background-image: url('/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
   }
 }

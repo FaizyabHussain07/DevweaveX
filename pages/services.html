@@ -12,6 +12,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="preload" as="style" href="/src/style.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/style.css"></noscript>
 </head>
 
 <body>
@@ -33,7 +35,7 @@
                 <div class="glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-300">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div class="text-center md:text-left">
-                            <div class="text-7xl mb-4">🌐</div>
+                            <div class="mb-4"><i data-lucide="globe" class="w-16 h-16"></i></div>
                             <h3 class="text-3xl font-bold mb-2">Custom Website Development</h3>
                             <p class="text-neon font-semibold text-xl">Starting at $500</p>
                         </div>
@@ -64,7 +66,7 @@
                 <div class="glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-300">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div class="text-center md:text-left">
-                            <div class="text-7xl mb-4">📱</div>
+                            <div class="mb-4"><i data-lucide="smartphone" class="w-16 h-16"></i></div>
                             <h3 class="text-3xl font-bold mb-2">Web & Mobile App Development</h3>
                             <p class="text-neon font-semibold text-xl">Starting at $1,500</p>
                         </div>
@@ -95,7 +97,7 @@
                 <div class="glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-300">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div class="text-center md:text-left">
-                            <div class="text-7xl mb-4">🤖</div>
+                            <div class="mb-4"><i data-lucide="bot" class="w-16 h-16"></i></div>
                             <h3 class="text-3xl font-bold mb-2">AI-Powered Tools & SaaS</h3>
                             <p class="text-neon font-semibold text-xl">Starting at $2,000</p>
                         </div>
@@ -125,7 +127,7 @@
                 <div class="glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-300">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div class="text-center md:text-left">
-                            <div class="text-7xl mb-4">⚡</div>
+                            <div class="mb-4"><i data-lucide="zap" class="w-16 h-16"></i></div>
                             <h3 class="text-3xl font-bold mb-2">No-Code / Low-Code Solutions</h3>
                             <p class="text-neon font-semibold text-xl">Starting at $300</p>
                         </div>
@@ -154,7 +156,7 @@
                 <div class="glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-300">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div class="text-center md:text-left">
-                            <div class="text-7xl mb-4">🎨</div>
+                            <div class="mb-4"><i data-lucide="palette" class="w-16 h-16"></i></div>
                             <h3 class="text-3xl font-bold mb-2">UI/UX Design & Branding</h3>
                             <p class="text-neon font-semibold text-xl">Starting at $400</p>
                         </div>
@@ -183,7 +185,7 @@
                 <div class="glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-300">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                         <div class="text-center md:text-left">
-                            <div class="text-7xl mb-4">🚀</div>
+                            <div class="mb-4"><i data-lucide="rocket" class="w-16 h-16"></i></div>
                             <h3 class="text-3xl font-bold mb-2">Full-Stack Digital Products</h3>
                             <p class="text-neon font-semibold text-xl">Starting at $3,000</p>
                         </div>
@@ -222,22 +224,22 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="glass p-8 rounded-3xl text-center">
-                        <div class="text-5xl mb-4">💡</div>
+                        <div class="mb-4"><i data-lucide="lightbulb" class="w-12 h-12"></i></div>
                         <h4 class="text-xl font-bold mb-2">1. Discovery</h4>
                         <p class="text-gray-400">Understanding your vision and requirements</p>
                     </div>
                     <div class="glass p-8 rounded-3xl text-center">
-                        <div class="text-5xl mb-4">📐</div>
+                        <div class="mb-4"><i data-lucide="ruler" class="w-12 h-12"></i></div>
                         <h4 class="text-xl font-bold mb-2">2. Design</h4>
                         <p class="text-gray-400">Creating wireframes and visual designs</p>
                     </div>
                     <div class="glass p-8 rounded-3xl text-center">
-                        <div class="text-5xl mb-4">⚙️</div>
+                        <div class="mb-4"><i data-lucide="settings" class="w-12 h-12"></i></div>
                         <h4 class="text-xl font-bold mb-2">3. Development</h4>
                         <p class="text-gray-400">Building with clean, scalable code</p>
                     </div>
                     <div class="glass p-8 rounded-3xl text-center">
-                        <div class="text-5xl mb-4">🚀</div>
+                        <div class="mb-4"><i data-lucide="rocket" class="w-12 h-12"></i></div>
                         <h4 class="text-xl font-bold mb-2">4. Launch</h4>
                         <p class="text-gray-400">Deployment and ongoing support</p>
                     </div>
@@ -261,7 +263,7 @@
         <!-- WhatsApp Float Button -->
         <a href="https://wa.me/923352811970" target="_blank"
             class="fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:scale-110 transition-all duration-300 z-50">
-            💬
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
         </a>
     </div>
     <script type="module" src="/src/main.ts"></script>

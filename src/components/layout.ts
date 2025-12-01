@@ -57,9 +57,15 @@ export function injectLayout() {
                 <div>
                     <h4 class="font-bold mb-4 text-[#00D4FF]">Follow Us</h4>
                     <div class="flex gap-3">
-                        <a href="https://www.linkedin.com/in/faizyabhussain/" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#00D4FF] hover:text-[#0A2540] transition text-sm font-bold">in</a>
-                        <a href="https://github.com/FaizyabHussain07" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#00D4FF] hover:text-[#0A2540] transition text-sm font-bold">gh</a>
-                        <a href="https://www.instagram.com/syedfaizyabhussain07/" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#00D4FF] hover:text-[#0A2540] transition text-sm font-bold">ig</a>
+                        <a aria-label="LinkedIn" href="https://www.linkedin.com/in/faizyabhussain/" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#00D4FF] hover:text-[#0A2540] transition">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a aria-label="GitHub" href="https://github.com/FaizyabHussain07" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#00D4FF] hover:text-[#0A2540] transition">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                        </a>
+                        <a aria-label="Instagram" href="https://www.instagram.com/syedfaizyabhussain07/" target="_blank" class="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-[#00D4FF] hover:text-[#0A2540] transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
             </div>
