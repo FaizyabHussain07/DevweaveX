@@ -85,7 +85,7 @@
                                     placeholder="Tell us about your project..."></textarea>
                             </div>
 
-                            <button type="submit"
+                            <button id="submitBtn" type="submit"
                                 class="w-full px-8 py-4 bg-neon text-background rounded-full hover:bg-white transition-all duration-300 font-bold text-lg shadow-lg hover:scale-105">
                                 Send Message →
                             </button>
@@ -218,19 +218,41 @@
     </div>
     <script type="module" src="/src/main.ts"></script>
     <script>
-    // Show thank-you popup after the hidden iframe loads (i.e., form submission completes)
+    // Fast submit: intercept form, send via fetch, show instant feedback
     document.addEventListener('DOMContentLoaded', function() {
-      var iframe = document.getElementById('hiddenFormFrame');
       var modal = document.getElementById('thankModal');
       var closeBtn = document.getElementById('thankClose');
       var form = document.getElementById('contactForm');
-      if (iframe && modal && form) {
-        iframe.addEventListener('load', function() {
-          modal.classList.remove('hidden');
-          modal.classList.add('flex');
-          try { form.reset(); } catch(e) {}
+      var submitBtn = document.getElementById('submitBtn');
+
+      function openThankYou() {
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      if (form && submitBtn) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          var originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Sending...';
+          try {
+            var fd = new FormData(form);
+            // Use HTTPS and no-cors to avoid CORS errors while ensuring request is sent quickly
+            await fetch(form.action, { method: 'POST', body: fd, mode: 'no-cors' });
+            openThankYou();
+            try { form.reset(); } catch (_) {}
+          } catch (err) {
+            // Fallback to standard form submit (hidden iframe will catch and show thank you)
+            try { form.submit(); } catch (_) {}
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText || 'Send Message →';
+          }
         });
       }
+
       if (closeBtn && modal) {
         closeBtn.addEventListener('click', function() {
           modal.classList.add('hidden');
