@@ -13,6 +13,51 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://devweavex.netlify.app/pages/blog.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog detail pages -->
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/fast-mobile.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/seo-basics-2025.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/web-vs-native.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/ai-use-cases.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/design-systems.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/trending-tools-2025.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/international-seo-2025.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/ecommerce-conversion-boost.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/security-best-practices-2025.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devweavex.netlify.app/pages/blog/pwa-2025.html</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>
     <loc>https://devweavex.netlify.app/pages/portfolio.html</loc>
     <priority>0.8</priority>
   </url>

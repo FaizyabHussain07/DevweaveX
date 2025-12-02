@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fast & Mobile-Friendly Websites — DevweaveX</title>
+  <meta name="description" content="Step-by-step guide to make your website fast, responsive, and optimized for international audiences." />
+  <link rel="canonical" href="https://devweavex.netlify.app/pages/blog/fast-mobile.html" />
+  <meta property="og:title" content="Fast & Mobile-Friendly Websites" />
+  <meta property="og:description" content="Checklist for speed, responsiveness, and global UX." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://devweavex.netlify.app/pages/blog/fast-mobile.html" />
+  <meta property="og:image" content="https://devweavex.netlify.app/public/hero-bg.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Make Your Website Fast and Mobile-Friendly",
+    "datePublished": "2025-01-01",
+    "author": {"@type": "Organization", "name": "DevweaveX"},
+    "mainEntityOfPage": "https://devweavex.netlify.app/pages/blog/fast-mobile.html"
+  }
+  </script>
+  <link rel="preload" as="style" href="/src/style.css" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/src/style.css"></noscript>
+</head>
+<body>
+  <div id="app">
+    <section class="min-h-[40vh] flex flex-col justify-center items-center text-center px-4 pt-32 pb-10 relative overflow-hidden">
+      <div class="absolute inset-0 hero-bg -z-20"></div>
+      <div class="absolute inset-0 hero-overlay -z-10"></div>
+      <h1 class="section-title">Fast & <span class="gradient-text">Mobile-Friendly</span></h1>
+      <p class="text-gray-300 max-w-3xl">A practical roadmap to speed, responsiveness, and premium UX.</p>
+    </section>
+
+    <article class="px-4 py-12">
+      <div class="max-w-3xl mx-auto glass p-8 rounded-3xl">
+        <h2 class="text-2xl font-bold mb-4">Why speed matters</h2>
+        <p class="text-gray-300 mb-6">Fast websites increase conversions and rank better. Aim for sub‑2s LCP and 90+ Lighthouse.</p>
+
+        <h3 class="text-xl font-bold mb-3">Core actions</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+          <li>Compress images (`webp`), responsive sizes, and lazy-loading.</li>
+          <li>Defer non-critical scripts; keep JS small and modular.</li>
+          <li>Use Tailwind typography scale and consistent spacing.</li>
+          <li>HTTP caching and CDN (Netlify/Vercel/Cloudflare).</li>
+        </ul>
+
+        <h3 class="text-xl font-bold mb-3">International UX</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-2 mb-6">
+          <li>Readable fonts, accessible color contrast, RTL support if needed.</li>
+          <li>Currency, date formats, and copy localized for target regions.</li>
+        </ul>
+
+        <div class="mt-6 flex flex-col sm:flex-row sm:flex-wrap items-stretch gap-3 sm:gap-4">
+          <a href="/pages/blog.html" class="btn-secondary w-full sm:w-auto text-center">Back to Blog</a>
+          <a href="/" class="btn-secondary w-full sm:w-auto text-center">Home</a>
+          <a href="/pages/contact.html" class="btn-primary w-full sm:w-auto text-center">Get Optimization Audit</a>
+        </div>
+      </div>
+    </article>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

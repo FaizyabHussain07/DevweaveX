@@ -9,7 +9,7 @@ A complete, ultra-professional, multi-page software house website for **Devweave
 
 ## 🚀 Features
 
-- ✨ **5 Complete Pages**: Home, About, Services, Portfolio, Contact
+- ✨ **6 Complete Pages**: Home, About, Services, Blog, Portfolio, Contact
 - 🎨 **Premium Dark Design**: Glassmorphism, neon accents, smooth animations
 - 📱 **Fully Responsive**: Mobile-first design, works on all devices
 - ⚡ **Lightning Fast**: Optimized with Vite, Tailwind CSS
@@ -24,6 +24,11 @@ A complete, ultra-professional, multi-page software house website for **Devweave
 devweavex-website/
 ├── pages/              # All HTML pages
 │   ├── about.html
+│   ├── blog.html
+│   ├── blog/           # Blog articles
+│   │   ├── seo-basics-2025.html
+│   │   ├── fast-mobile.html
+│   │   └── ... (more articles)
 │   ├── services.html
 │   ├── portfolio.html
 │   └── contact.html
@@ -94,8 +99,8 @@ npm run preview
 ### 4. **Portfolio** (`/pages/portfolio.html`)
 - 6 real projects with live iframes:
   - README Builder AI
-  - MyPage Bio Link
-  - Wibba Web Builder
+  - MyPage Protfolio builder
+  - Wibba social web
   - Quiz Builder AI
   - Faizyab Al-Quran
   - Modern College Website
@@ -109,12 +114,32 @@ npm run preview
 - Business hours
 - Google Maps embed
 
+### 6. **Blog** (`/pages/blog.html`)
+- Latest articles on web, SEO, performance, security, PWA, AI.
+- Clean list layout with category tags and CTAs.
+- Each article page includes quick navigation (Back to Blog, Home, Contact).
+- Articles examples:
+  - `seo-basics-2025.html`
+  - `fast-mobile.html`
+  - `web-vs-native.html`
+  - `security-best-practices-2025.html`
+
 ## 🎨 Design System
 
 ### Colors
 - **Background**: `#0A2540` (Deep Blue)
 - **Neon Cyan**: `#00D4FF`
 - **Purple**: `#A78BFA`
+
+### Branding Updates (Logo & Footer)
+- Header and footer now use the full logo image only (no text label).
+- Logo dimensions standardized to `width="220" height="40"` for crisp rendering.
+- Footer background updated to theme-tinted light blue `#EAF2FF` for better logo visibility and brand consistency.
+- Footer borders use `border-[#0A2540]/10` to match theme.
+
+Where to edit:
+- Logo and footer are controlled in `src/components/layout.ts`.
+- Logo file path: `public/logo-devweavex.png`.
 
 ### Typography
 - **Body**: Inter (Google Fonts)

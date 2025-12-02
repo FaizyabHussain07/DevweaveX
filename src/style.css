@@ -92,6 +92,28 @@
     background-image: url('/hero-bg.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.2;
+    opacity: 0.25;
+    filter: saturate(115%);
   }
+
+  /* Soft gradient overlay to enrich hero visuals */
+  .hero-overlay {
+    background: radial-gradient(closest-side, rgba(167,139,250,0.15), transparent 60%),
+      linear-gradient(to bottom, rgba(0,212,255,0.15), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Hamburger button animation */
+  .hamburger {
+    @apply w-10 h-10 flex items-center justify-center relative cursor-pointer select-none md:hidden;
+  }
+  .hamburger span {
+    @apply block w-6 h-[2px] bg-white absolute transition-transform duration-300 ease-in-out;
+  }
+  .hamburger span:nth-child(1) { transform: translateY(-6px); }
+  .hamburger span:nth-child(2) { transform: translateY(0); }
+  .hamburger span:nth-child(3) { transform: translateY(6px); }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg); }
+  .hamburger.open span:nth-child(2) { @apply opacity-0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg); }
 }
