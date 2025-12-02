@@ -34,10 +34,12 @@
                     <!-- Contact Form -->
                     <div class="glass p-10 rounded-3xl">
                         <h2 class="text-3xl font-bold mb-6">Send us a Message</h2>
-                        <form class="space-y-6" id="contactForm" method="POST" action="http://formsubmit.co/devweavex@gmail.com" target="hidden-form">
-                            <!-- FormSubmit settings -->
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_subject" value="New Contact Request from DevweaveX">
+                        <form class="space-y-6" id="contactForm" name="contact" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
+                            <!-- Netlify Forms settings -->
+                            <input type="hidden" name="form-name" value="contact">
+                            <p class="hidden">
+                                <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                            </p>
                             <div>
                                 <label class="block text-sm font-semibold mb-2">Your Name *</label>
                                 <input type="text" name="name" required
@@ -55,26 +57,26 @@
                             <div>
                                 <label class="block text-sm font-semibold mb-2">Service Interested In *</label>
                                 <select name="service" required
-                                    class="w-full px-4 py-3 bg-white/5 text-white border border-white/20 rounded-xl focus:border-neon focus:outline-none transition">
+                                    class="w-full px-4 py-3 bg-white/5 text-white border border-white/20 rounded-xl focus:border-neon focus:outline-none transition appearance-none cursor-pointer">
                                     <option value="" disabled selected class="text-gray-400">Select a service</option>
-                                    <option value="website">Custom Website Development</option>
-                                    <option value="app">Web & Mobile App Development</option>
-                                    <option value="ai">AI-Powered Tools & SaaS</option>
-                                    <option value="nocode">No-Code / Low-Code Solutions</option>
-                                    <option value="design">UI/UX Design & Branding</option>
-                                    <option value="fullstack">Full-Stack Digital Products</option>
+                                    <option value="website" class="text-white bg-gray-800">Custom Website Development</option>
+                                    <option value="app" class="text-white bg-gray-800">Web & Mobile App Development</option>
+                                    <option value="ai" class="text-white bg-gray-800">AI-Powered Tools & SaaS</option>
+                                    <option value="nocode" class="text-white bg-gray-800">No-Code / Low-Code Solutions</option>
+                                    <option value="design" class="text-white bg-gray-800">UI/UX Design & Branding</option>
+                                    <option value="fullstack" class="text-white bg-gray-800">Full-Stack Digital Products</option>
                                 </select>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold mb-2">Budget Range</label>
                                 <select name="budget"
-                                    class="w-full px-4 py-3 bg-white/5 text-white border border-white/20 rounded-xl focus:border-neon focus:outline-none transition">
+                                    class="w-full px-4 py-3 bg-white/5 text-white border border-white/20 rounded-xl focus:border-neon focus:outline-none transition appearance-none cursor-pointer">
                                     <option value="" class="text-gray-400">Select budget range</option>
-                                    <option value="300-1000">$300 - $1,000</option>
-                                    <option value="1000-3000">$1,000 - $3,000</option>
-                                    <option value="3000-5000">$3,000 - $5,000</option>
-                                    <option value="5000+">$5,000+</option>
+                                    <option value="300-1000" class="text-white bg-gray-800">$300 - $1,000</option>
+                                    <option value="1000-3000" class="text-white bg-gray-800">$1,000 - $3,000</option>
+                                    <option value="3000-5000" class="text-white bg-gray-800">$3,000 - $5,000</option>
+                                    <option value="5000+" class="text-white bg-gray-800">$5,000+</option>
                                 </select>
                             </div>
 
@@ -197,8 +199,7 @@
             </div>
         </section>
 
-        <!-- Hidden iframe to avoid navigation on submit -->
-        <iframe name="hidden-form" id="hiddenFormFrame" style="display:none"></iframe>
+        <!-- Hidden iframe removed (Netlify Forms uses same-origin POST; we use AJAX and popup) -->
 
         <!-- Thank You Popup -->
         <div id="thankModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50">
@@ -225,7 +226,6 @@
         var closeBtn = document.getElementById('thankClose');
         var form = document.getElementById('contactForm');
         var submitBtn = document.getElementById('submitBtn');
-        var iframe = document.getElementById('hiddenFormFrame');
 
         function openThankYou() {
           if (!modal) return;
@@ -239,13 +239,6 @@
           modal.classList.remove('flex');
         }
 
-        // Fallback: if the hidden iframe loads (normal form submit), show thank you
-        if (iframe) {
-          iframe.addEventListener('load', function() {
-            openThankYou();
-            try { form && form.reset(); } catch(e) {}
-          });
-        }
 
         if (form && submitBtn) {
           form.addEventListener('submit', async function(e) {
@@ -255,7 +248,14 @@
             submitBtn.textContent = 'Sending...';
             try {
               var fd = new FormData(form);
-              await fetch(form.action, { method: 'POST', body: fd, mode: 'no-cors' });
+              // Netlify Forms: POST to same-origin with URL-encoded body
+              var encoded = new URLSearchParams();
+              fd.forEach((value, key) => encoded.append(key, value));
+              await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encoded.toString()
+              });
               openThankYou();
               try { form.reset(); } catch (_) {}
             } catch (err) {

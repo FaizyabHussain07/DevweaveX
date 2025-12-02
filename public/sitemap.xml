@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- TODO: Update the domain below to your live production domain -->
   <url>
-    <loc>https://devweavex.local/</loc>
+    <loc>https://devweavex.netlify.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://devweavex.local/pages/about.html</loc>
+    <loc>https://devweavex.netlify.app/pages/about.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devweavex.local/pages/services.html</loc>
+    <loc>https://devweavex.netlify.app/pages/services.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devweavex.local/pages/portfolio.html</loc>
+    <loc>https://devweavex.netlify.app/pages/portfolio.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devweavex.local/pages/contact.html</loc>
+    <loc>https://devweavex.netlify.app/pages/contact.html</loc>
     <priority>0.9</priority>
   </url>
 </urlset>
