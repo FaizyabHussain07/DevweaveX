@@ -78,8 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
           reply_to: String((d as any).reply_to || d.email || ''),
           service: String(d.service || ''),        // Service: {{service}}
           budget: String(d.budget || ''),          // Budget: {{budget}}
-          project: String(d.message || ''),        // Project Details: {{project}}
-          message: String(d.message || '')
+          project: String(d.project || '')
         }
         if (params.email) {
           emailjs
