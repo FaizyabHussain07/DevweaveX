@@ -78,8 +78,9 @@ window.addEventListener('DOMContentLoaded', () => {
           reply_to: String((d as any).reply_to || d.email || ''),
           service: String(d.service || ''),        // Service: {{service}}
           budget: String(d.budget || ''),          // Budget: {{budget}}
-          project: String(d.project || '')
+          project: String(d.project || d.message || '')
         }
+        console.log('EmailJS params', params)
         if (params.email) {
           emailjs
             .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
