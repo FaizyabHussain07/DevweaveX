@@ -250,9 +250,28 @@
             submitBtn.textContent = 'Sending...';
             try {
               var fd = new FormData(form);
-              // Netlify Forms: POST to same-origin with URL-encoded body
+              var payload = {
+                name: fd.get('name'),
+                email: fd.get('email'),
+                service: fd.get('service'),
+                budget: fd.get('budget'),
+                message: fd.get('message'),
+                botField: fd.get('bot-field') || ''
+              };
+              var res = await fetch('/.netlify/functions/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+              if (!res.ok) {
+                throw new Error('Submit failed');
+              }
+              // Also store submission in Netlify Forms
               var encoded = new URLSearchParams();
-              fd.forEach((value, key) => encoded.append(key, value));
+              encoded.append('form-name', 'contact');
+              Object.keys(payload).forEach(function(key){
+                if (payload[key] != null) encoded.append(key, String(payload[key]));
+              });
               await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
