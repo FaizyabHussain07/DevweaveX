@@ -69,15 +69,19 @@ window.addEventListener('DOMContentLoaded', () => {
         const custom = ev as CustomEvent
         const d = (custom.detail || {}) as Record<string, string>
         const params = {
-          to_email: String(d.email || ''),
+          // Match your EmailJS template variables
+          email: String(d.email || ''),            // To Email: {{email}}
+          name: String(d.name || ''),              // Contact Name: {{name}}
           from_name: String(d.name || 'DevWeaveX'),
           user_name: String(d.name || ''),
           user_email: String(d.email || ''),
-          service: String(d.service || ''),
-          budget: String(d.budget || ''),
+          reply_to: String((d as any).reply_to || d.email || ''),
+          service: String(d.service || ''),        // Service: {{service}}
+          budget: String(d.budget || ''),          // Budget: {{budget}}
+          project: String(d.message || ''),        // Project Details: {{project}}
           message: String(d.message || '')
         }
-        if (params.to_email) {
+        if (params.email) {
           emailjs
             .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
             .then(() => console.log('EmailJS: autoresponse sent'))

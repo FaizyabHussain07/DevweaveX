@@ -42,6 +42,7 @@
                             </p>
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="_replyto" value="">
+                            <input type="hidden" name="reply_to" value="">
                             <div>
                                 <label class="block text-sm font-semibold mb-2">Your Name *</label>
                                 <input type="text" name="name" required
@@ -84,7 +85,7 @@
 
                             <div>
                                 <label class="block text-sm font-semibold mb-2">Project Details *</label>
-                                <textarea name="message" required rows="5"
+                                <textarea name="project" required rows="5"
                                     class="w-full px-4 py-3 bg-white/5 text-white placeholder:text-gray-400 border border-white/20 rounded-xl focus:border-neon focus:outline-none transition resize-none"
                                     placeholder="Tell us about your project..."></textarea>
                             </div>
@@ -256,10 +257,13 @@
             submitBtn.disabled = true;
             var originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
-            try {
-              var fd = new FormData(form);
+              try {
+                var fd = new FormData(form);
               if (!fd.get('_replyto') && fd.get('email')) {
                 fd.set('_replyto', String(fd.get('email')));
+              }
+              if (!fd.get('reply_to') && fd.get('email')) {
+                fd.set('reply_to', String(fd.get('email')));
               }
               var payload = Object.fromEntries(fd.entries());
 
