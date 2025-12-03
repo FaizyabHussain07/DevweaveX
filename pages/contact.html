@@ -36,10 +36,11 @@
                     <!-- Contact Form -->
                     <div class="glass p-10 rounded-3xl">
                         <h2 class="text-3xl font-bold mb-6">Send us a Message</h2>
-                        <form class="space-y-6" id="contactForm" name="contact" method="POST" action="https://formspree.io/f/movgwpkp">
+                        <form class="space-y-6" id="contactForm" name="contact" netlify netlify data-netlify="true" netlify-honeypot="bot-field" method="POST" action="https://formspree.io/f/movgwpkp" data-netlify="true" data-netlify-honeypot="bot-field">
                             <p class="hidden">
                                 <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
                             </p>
+                            <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="_replyto" value="">
                             <div>
                                 <label class="block text-sm font-semibold mb-2">Your Name *</label>
@@ -227,6 +228,11 @@
         var closeBtn = document.getElementById('thankClose');
         var form = document.getElementById('contactForm');
         var submitBtn = document.getElementById('submitBtn');
+        function encode(data) {
+          return Object.keys(data)
+            .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); })
+            .join('&');
+        }
 
         function openThankYou() {
           if (!modal) return;
@@ -249,24 +255,36 @@
             submitBtn.textContent = 'Sending...';
             try {
               var fd = new FormData(form);
-              // Ensure Formspree has the submitter's email as reply-to
               if (!fd.get('_replyto') && fd.get('email')) {
                 fd.set('_replyto', String(fd.get('email')));
               }
               var payload = Object.fromEntries(fd.entries());
-              var endpoint = form.getAttribute('action') || 'https://formspree.io/f/movgwpkp';
-              var res = await fetch(endpoint, {
+
+              // Prepare both submissions: Formspree (JSON) and Netlify Forms (URL-encoded to site root)
+              var formspreeEndpoint = form.getAttribute('action') || 'https://formspree.io/f/movgwpkp';
+              var netlifyPayload = Object.assign({ 'form-name': 'contact' }, payload);
+
+              var sendFormspree = fetch(formspreeEndpoint, {
                 method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify(payload)
               });
-              if (!res.ok) throw new Error('Submit failed');
+
+              var sendNetlify = fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode(netlifyPayload)
+              });
+
+              var results = await Promise.allSettled([sendFormspree, sendNetlify]);
+              var ok1 = results[0].status === 'fulfilled' && results[0].value && results[0].value.ok;
+              var ok2 = results[1].status === 'fulfilled' && results[1].value && results[1].value.ok;
+              if (!ok1 && !ok2) throw new Error('Both submissions failed');
+
               openThankYou();
               try { form.reset(); } catch (_) {}
             } catch (err) {
+              // As a fallback, let the browser submit normally (will hit Formspree due to action)
               try { form.submit(); } catch (_) {}
             } finally {
               setTimeout(function() {
