@@ -36,9 +36,7 @@
                     <!-- Contact Form -->
                     <div class="glass p-10 rounded-3xl">
                         <h2 class="text-3xl font-bold mb-6">Send us a Message</h2>
-                        <form class="space-y-6" id="contactForm" name="contact" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
-                            <!-- Netlify Forms settings -->
-                            <input type="hidden" name="form-name" value="contact">
+                        <form class="space-y-6" id="contactForm" name="contact" method="POST" action="https://formspree.io/f/movgwpkp">
                             <p class="hidden">
                                 <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
                             </p>
@@ -250,33 +248,17 @@
             submitBtn.textContent = 'Sending...';
             try {
               var fd = new FormData(form);
-              var payload = {
-                name: fd.get('name'),
-                email: fd.get('email'),
-                service: fd.get('service'),
-                budget: fd.get('budget'),
-                message: fd.get('message'),
-                botField: fd.get('bot-field') || ''
-              };
-              var res = await fetch('/.netlify/functions/contact', {
+              var payload = Object.fromEntries(fd.entries());
+              var endpoint = form.getAttribute('action') || 'https://formspree.io/f/movgwpkp';
+              var res = await fetch(endpoint, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                },
                 body: JSON.stringify(payload)
               });
-              if (!res.ok) {
-                throw new Error('Submit failed');
-              }
-              // Also store submission in Netlify Forms
-              var encoded = new URLSearchParams();
-              encoded.append('form-name', 'contact');
-              Object.keys(payload).forEach(function(key){
-                if (payload[key] != null) encoded.append(key, String(payload[key]));
-              });
-              await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: encoded.toString()
-              });
+              if (!res.ok) throw new Error('Submit failed');
               openThankYou();
               try { form.reset(); } catch (_) {}
             } catch (err) {
