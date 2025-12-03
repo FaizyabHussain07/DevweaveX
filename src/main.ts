@@ -38,6 +38,40 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   requestAnimationFrame(raf)
+
+  // EmailJS autoresponse wiring (reads credentials from Vite env)
+  const form = document.getElementById('contactForm') as HTMLFormElement | null
+  const emailjs: any = (window as any).emailjs
+  const EMAILJS_PUBLIC_KEY = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? '') as string
+  const EMAILJS_SERVICE_ID = (import.meta.env.VITE_EMAILJS_SERVICE_ID ?? '') as string
+  const EMAILJS_TEMPLATE_ID = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? '') as string
+
+  try {
+    if (emailjs && typeof emailjs.init === 'function' && EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY)
+    }
+  } catch (_) {}
+
+  if (form && emailjs && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
+    form.addEventListener('contact:submitted', (ev: Event) => {
+      try {
+        const custom = ev as CustomEvent
+        const d = (custom.detail || {}) as Record<string, string>
+        const params = {
+          to_email: String(d.email || ''),
+          from_name: String(d.name || 'DevWeaveX'),
+          user_name: String(d.name || ''),
+          user_email: String(d.email || ''),
+          service: String(d.service || ''),
+          budget: String(d.budget || ''),
+          message: String(d.message || '')
+        }
+        if (params.to_email) {
+          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params).catch(() => {})
+        }
+      } catch (_) {}
+    })
+  }
 })
 
 console.log('DevweaveX loaded')

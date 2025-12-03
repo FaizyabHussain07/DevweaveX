@@ -36,7 +36,7 @@
                     <!-- Contact Form -->
                     <div class="glass p-10 rounded-3xl">
                         <h2 class="text-3xl font-bold mb-6">Send us a Message</h2>
-                        <form class="space-y-6" id="contactForm" name="contact" netlify netlify data-netlify="true" netlify-honeypot="bot-field" method="POST" action="https://formspree.io/f/movgwpkp" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <form class="space-y-6" id="contactForm" name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
                             <p class="hidden">
                                 <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
                             </p>
@@ -219,6 +219,7 @@
             💬
         </a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="module" src="/src/main.ts"></script>
     <script>
     // Fast submit: intercept and show instant feedback; ensure init runs even if DOM is already loaded
@@ -233,6 +234,8 @@
             .map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); })
             .join('&');
         }
+
+        // EmailJS is initialized in /src/main.ts using Vite env; no credentials here
 
         function openThankYou() {
           if (!modal) return;
@@ -260,31 +263,21 @@
               }
               var payload = Object.fromEntries(fd.entries());
 
-              // Prepare both submissions: Formspree (JSON) and Netlify Forms (URL-encoded to site root)
-              var formspreeEndpoint = form.getAttribute('action') || 'https://formspree.io/f/movgwpkp';
+              // Submit to Netlify Forms (URL-encoded to site root)
               var netlifyPayload = Object.assign({ 'form-name': 'contact' }, payload);
-
-              var sendFormspree = fetch(formspreeEndpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(payload)
-              });
-
-              var sendNetlify = fetch('/', {
+              var netlifyRes = await fetch('/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: encode(netlifyPayload)
               });
 
-              var results = await Promise.allSettled([sendFormspree, sendNetlify]);
-              var ok1 = results[0].status === 'fulfilled' && results[0].value && results[0].value.ok;
-              var ok2 = results[1].status === 'fulfilled' && results[1].value && results[1].value.ok;
-              if (!ok1 && !ok2) throw new Error('Both submissions failed');
+              try { form.dispatchEvent(new CustomEvent('contact:submitted', { detail: payload })); } catch (_) {}
 
+              if (!netlifyRes.ok) throw new Error('Submit failed');
               openThankYou();
               try { form.reset(); } catch (_) {}
             } catch (err) {
-              // As a fallback, let the browser submit normally (will hit Formspree due to action)
+              // Fallback: regular form submit to site root (Netlify will capture)
               try { form.submit(); } catch (_) {}
             } finally {
               setTimeout(function() {
