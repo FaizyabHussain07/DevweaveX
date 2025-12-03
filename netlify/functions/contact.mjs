@@ -139,21 +139,24 @@ export async function handler(event) {
   }
 
   const resend = new Resend(apiKey);
+  const fromHeader = `DevWeaveX <${fromEmail}>`;
 
   try {
     const [userRes, adminRes] = await Promise.all([
       resend.emails.send({
-        from: fromEmail,
+        from: fromHeader,
         to: email,
         subject: 'Thanks for contacting DevWeaveX',
         html: userReplyHtml({ name }),
+        text: `Hi ${sanitize(name) || 'there'},\n\nThanks for reaching out to DevWeaveX. Your message is in and our team will get back to you shortly. If this is urgent, reply to this email directly.\n\n— DevWeaveX` ,
         reply_to: notifyEmail,
       }),
       resend.emails.send({
-        from: fromEmail,
+        from: fromHeader,
         to: notifyEmail,
         subject: `New Contact - ${sanitize(name)} (${sanitize(service)})`,
         html: adminNotifyHtml({ name, email, service, budget, message }),
+        text: `New contact submission:\nName: ${sanitize(name)}\nEmail: ${sanitize(email)}\nService: ${sanitize(service)}\nBudget: ${sanitize(budget || '—')}\nMessage: ${sanitize(message)}\nReceived at: ${new Date().toLocaleString()}`,
         reply_to: email,
       }),
     ]);
