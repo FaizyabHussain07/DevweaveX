@@ -46,11 +46,22 @@ window.addEventListener('DOMContentLoaded', () => {
   const EMAILJS_SERVICE_ID = (import.meta.env.VITE_EMAILJS_SERVICE_ID ?? '') as string
   const EMAILJS_TEMPLATE_ID = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? '') as string
 
+  console.log('EmailJS env present', {
+    hasPublic: !!EMAILJS_PUBLIC_KEY,
+    hasService: !!EMAILJS_SERVICE_ID,
+    hasTemplate: !!EMAILJS_TEMPLATE_ID,
+  })
+
   try {
     if (emailjs && typeof emailjs.init === 'function' && EMAILJS_PUBLIC_KEY) {
       emailjs.init(EMAILJS_PUBLIC_KEY)
+      console.log('EmailJS initialized')
+    } else {
+      console.warn('EmailJS init skipped (missing library or public key)')
     }
-  } catch (_) {}
+  } catch (e) {
+    console.error('EmailJS init error', e)
+  }
 
   if (form && emailjs && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
     form.addEventListener('contact:submitted', (ev: Event) => {
@@ -67,7 +78,12 @@ window.addEventListener('DOMContentLoaded', () => {
           message: String(d.message || '')
         }
         if (params.to_email) {
-          emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params).catch(() => {})
+          emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+            .then(() => console.log('EmailJS: autoresponse sent'))
+            .catch((err: any) => console.error('EmailJS: send error', err))
+        } else {
+          console.warn('EmailJS: missing recipient email, skipping send')
         }
       } catch (_) {}
     })
